@@ -41,7 +41,7 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 		case 0x53:
 			diffusePosition[1] -= 0.3;
 			break;
-		
+
 		case 0x45:
 			diffusePosition[2] += 0.3;
 			break;
@@ -136,29 +136,29 @@ void drawPyramid()
 
 	glColor3f(0, 1, 0);
 	glVertex3f(0, 0.5, -0.3);
-	glVertex3f(-0.3, 0, 0);
+	glVertex3f(-0.25, 0, 0);
 	glVertex3f(0.3, 0, 0);
 
 	glColor3f(0, 1, 0);
 	glVertex3f(0, 0.5, -0.3);
-	glVertex3f(-0.3, 0, 0);
-	glVertex3f(-0.3, 0, -1.0);
+	glVertex3f(-0.25, 0, 0);
+	glVertex3f(-0.25, 0, -0.5);
 
 	glColor3f(0, 1, 0);
 	glVertex3f(0, 0.5, -0.3);
-	glVertex3f(0.3, 0, 0);
-	glVertex3f(0.3, 0, -1.0);
+	glVertex3f(0.25, 0, 0);
+	glVertex3f(0.25, 0, -0.5);
 
 	glColor3f(0, 1, 0);
 	glVertex3f(0, 0.5, -0.3);
-	glVertex3f(0.3, 0, -1.0);
-	glVertex3f(-0.3, 0, -1.0);
+	glVertex3f(0.25, 0, -0.5);
+	glVertex3f(-0.25, 0, -0.5);
 
 	glColor3f(0, 1, 0);
-	glVertex3f(-0.3, 0, 0);
-	glVertex3f(0.3, 0, 0);
-	glVertex3f(0.3, 0, -1.0);
-	glVertex3f(-0.3, 0, -1.0);
+	glVertex3f(-0.25, 0, 0);
+	glVertex3f(0.25, 0, 0);
+	glVertex3f(0.25, 0, -0.5);
+	glVertex3f(-0.25, 0, -0.5);
 
 	glEnd();
 	glPopMatrix();
@@ -190,14 +190,14 @@ void display()
 		}
 		glPopMatrix();
 	}
-	
+
 	if (rotate == 1)
 	{
-		glRotatef(-0.5, 1, 1, 1);
+		glRotatef(-0.3, 1, 1, 1);
 	}
 	else if (rotate == 2)
 	{
-		glRotatef(0.5, 1, 1, 1);
+		glRotatef(0.3, 1, 1, 1);
 	}
 
 	if (!pyramid)
@@ -208,11 +208,11 @@ void display()
 	{
 		drawPyramid();
 	}
-	
+
 	glPushMatrix();
 	{
 		glLoadIdentity();
-		
+
 		glDisable(GL_LIGHT0);
 		GLUquadricObj* sphere = NULL;
 		glMaterialfv(GL_FRONT, GL_AMBIENT, objectColor);
